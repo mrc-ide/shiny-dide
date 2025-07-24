@@ -1,0 +1,75 @@
+name: twinkle
+
+services:
+  shiny:
+    image: ghcr.io/mrc-ide/twinkle:latest
+    restart: unless-stopped
+    environment:
+      TWINKLE_ROOT: "/shiny"
+      TWINKLE_LOGS: "/shiny-logs"
+      TWINKLE_CONFIG: "/site.yml"
+      MC_CORES: "2"
+    deploy:
+      mode: replicated
+      replicas: 12
+    volumes:
+      - shiny-data:/shiny:ro
+      - shiny-logs:/shiny-logs
+      - ./site.yml:/site.yml:ro
+      - ./shiny-server.conf:/etc/shiny-server/shiny-server.conf:ro
+
+  haproxy:
+    image: haproxy:latest
+    restart: unless-stopped
+    depends_on:
+      shiny:
+        condition: service_started
+        restart: true
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+
+  apache:
+    image: httpd:latest
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      haproxy:
+        condition: service_started
+        restart: true
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+      - shiny-tls:/run/proxy:ro
+
+  acme-buddy:
+    image: ghcr.io/reside-ic/acme-buddy:latest
+    ports:
+      - 2112:2112
+    restart: unless-stopped
+    volumes:
+      - shiny-tls:/tls
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - ACME_BUDDY_STAGING
+    env_file:
+      - .hdb-credentials
+    command: >
+      --domain shiny.dide.ic.ac.uk
+      --email reside@imperial.ac.uk
+      --dns-provider hdb
+      --certificate-path /tls/certificate.pem
+      --key-path /tls/key.pem
+      --account-path /tls/account.json
+      --reload-container twinkle-apache-1
+
+volumes:
+  shiny-data:
+    # This container is marked as 'external' so that we can poke at it
+    # directly, but that might not really be needed.  Otherwise it
+    # will be managed by docker compose (being created where needed
+    # etc), which might be fine too.
+    external: true
+    name: shiny-data
+  shiny-tls:
+  shiny-logs:

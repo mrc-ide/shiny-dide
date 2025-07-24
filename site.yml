@@ -1,0 +1,97 @@
+apps:
+  starmeds-budget-tool:
+    username: mrc-ide
+    repo: starmeds
+
+  polici:
+    username: arranhamlet
+    repo: POLICI
+
+  chainchecker:
+    username: imperialebola2018
+    repo: chainchecker
+
+  learnr-test:
+    username: mrc-ide
+    repo: learnr_test
+
+  kpcascade:
+    username: osymandius
+    repo: kpcascade
+
+  covid19-si-shiny:
+    username: mrc-ide
+    repo: covid19-si-shiny
+
+  csavr_mortality:
+    username: mrc-ide
+    repo: csavr-mortality
+
+  kp-data:
+    username: mrc-ide
+    repo: kp-data-shiny
+    branch: shiny-server-v2
+
+  shiny90:
+    username: mrc-ide
+    repo: shiny90
+
+  s614LineagesUK:
+    username: robj411
+    repo: lineageApp
+
+  covid19-forecasts-shiny:
+    username: mrc-ide
+    repo: covid19-forecasts-orderly-shiny
+
+  DRpower-app:
+    username: shaziaruybal
+    repo: DRpower_app
+
+  pfhrp23-explainer:
+    username: rjzupkoii
+    repo: WHO-Malaria-pfhrp23
+    subdir: R
+
+  raptor:
+    username: mrc-ide
+    repo: RAPTOR
+    private: true
+
+  raptorx:
+    username: mrc-ide
+    repo: RAPTORX
+    private: true
+
+  seasonal_hrp2:
+    username: ojwatson
+    repo: hrp2malaRia
+    subdir: inst/shiny-seasonality/app
+
+  triagg:
+    username: osymandius
+    repo: triagg
+    subdir: inst/app/triagg
+
+  epiestim:
+    username: mrc-ide
+    repo: EpiEstimApp
+    branch: update-sources
+    subdir: inst/app
+
+  tfpbrowser:
+    username: mrc-ide
+    repo: tfpbrowser
+    subdir: inst/app
+
+  eppasmviewer:
+    username: mrc-ide
+    repo: eppasmviewer
+    subdir: inst/shiny/eppasmviewer
+    private: true
+
+  mms-sd-workshop:
+    username: mrc-ide
+    repo: MMS-SD_workshop
+    subdir: tutorials
+    script: prerender
