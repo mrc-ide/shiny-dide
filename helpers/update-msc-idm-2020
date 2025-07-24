@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -ex
-./scripts/provision msc-idm-2020
-./scripts/sync_app msc-idm-2020
-./helpers/reload-msc-idm-2020
