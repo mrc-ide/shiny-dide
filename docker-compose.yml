@@ -55,7 +55,7 @@ services:
     env_file:
       - .hdb-credentials
     command: >
-      --domain shiny.dide.ic.ac.uk,shiny.dide.imperial.ac.uk
+      --domain shiny.dide.ic.ac.uk,shiny.dide.imperial.ac.uk,shiny.epidemiology.net
       --email reside@imperial.ac.uk
       --dns-provider hdb
       --certificate-path /tls/certificate.pem
