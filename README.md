@@ -51,6 +51,14 @@ Once you tell us, we will try and get your application going on the server.  The
 
 Expect a bit of back and forth; it's usually easier to do this if your application is in `mrc-ide` as then we can just add missing dependencies to your repo directly (if they are obvious).  We will give you a URL and ask you to check the application, and if it crashes we will send you logs which will usually indicate the error.
 
+## Updating an application
+
+Most of the time, this just involves you editing your repository and pushing changes.  All updates on the server though are **entirely manual**; let us know when you would like things updated and we will do this.
+
+Please message us on the [Shiny server Channel on Teams](https://teams.microsoft.com/l/channel/19%3A627d868d57bd420f8a97e97e8d91e9e0%40thread.tacv2/Shiny%20server?groupId=ba231111-1572-42ae-981e-c8bc7aa681ef&tenantId=2b897507-ee8c-4575-830b-4f8267c3d307) and let us know that you would like your application updated.  Please always mention the name or URL of the application (so if your application is `shiny.dide.ic.ac.uk/potato` then include that url or let us know that it is `potato`).
+
+Please do not just ask "can you update my app" as we will most likely have forgotten which is yours, and we will have to ask you which it is, which slows everything down.
+
 ## Special notes
 
 * **If your repo is private**: if it is on `mrc-ide`, we can see it anyway.  If it is in your personal namespace consider migrating it to `mrc-ide`, otherwise we will need to get you to add a "deploy key" to the repository, and to add anyone working with your application as a collaborator.
