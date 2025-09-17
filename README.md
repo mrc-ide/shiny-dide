@@ -21,7 +21,7 @@ Hello! If you are a DIDE member wanting to host a shiny application on [`shiny.d
 * **uses publicly available packages**: with the exception of the repo that your application is found in (which may be private) all the dependencies of your application must be publicly available on CRAN, GitHub or an R-universe.
 * **can be deployed with relatively little intervention**: you will need to be able to describe what dependencies your application needs and it must not need much special coaxing to start up
 
-Most applications that we have been asked to host satisfy these criteria; if in doubt, please as us on the [**Shiny server** Channel on Teams](https://teams.microsoft.com/l/channel/19%3A627d868d57bd420f8a97e97e8d91e9e0%40thread.tacv2/Shiny%20server?groupId=ba231111-1572-42ae-981e-c8bc7aa681ef&tenantId=2b897507-ee8c-4575-830b-4f8267c3d307).
+Most applications that we have been asked to host satisfy these criteria; if in doubt, please ask us on the [**Shiny server** Channel on Teams](https://teams.microsoft.com/l/channel/19%3A627d868d57bd420f8a97e97e8d91e9e0%40thread.tacv2/Shiny%20server?groupId=ba231111-1572-42ae-981e-c8bc7aa681ef&tenantId=2b897507-ee8c-4575-830b-4f8267c3d307).
 
 To add an application, you need to do two things:
 
