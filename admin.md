@@ -135,7 +135,7 @@ Sometimes only the source wants updating (not the packages) and this can be done
 
 ## Finding out what is going on
 
-The administrator can run commands to find out what is going on with applications on the server (users cannot do this directly - ask us to find things out please).
+The administrator can run commands to find out what is going on with applications on the server (users cannot do this directly - they need to ask us to find things out please).
 
 ### Logs from applications
 
