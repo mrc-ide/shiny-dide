@@ -53,6 +53,11 @@ apps:
     repo: WHO-Malaria-pfhrp23
     subdir: R
 
+  jicvp:
+    username: jameel-institute
+    repo: jicvp
+    subdir: shiny
+
   raptor:
     username: mrc-ide
     repo: RAPTOR
