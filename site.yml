@@ -57,6 +57,7 @@ apps:
     username: jameel-institute
     repo: jicvp
     subdir: shiny
+    private: true
 
   raptor:
     username: mrc-ide
