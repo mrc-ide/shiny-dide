@@ -35,6 +35,12 @@ which is all the commands for `acme-buddy` in `docker-compose.yml` *except* `--r
 
 ### General deployment
 
+Navigate to `/home/shiny/shiny-dide`:
+
+```
+cd /home/shiny/shiny-dide
+```
+
 Start the system
 
 ```
