@@ -2,5 +2,7 @@
 docker compose run --rm \
        -v shiny-data:/shiny-data \
        -e TWINKLE_ROOT=/shiny-data \
+       -e VAULT_ADDR="$VAULT_ADDR" \
+       -e VAULT_AUTH_GITHUB_TOKEN="$VAULT_AUTH_GITHUB_TOKEN" \
        -w /shiny-data \
        shiny bash $@
