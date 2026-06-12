@@ -102,7 +102,7 @@ apps:
     subdir: tutorials
     script: prerender
 
-  measles_dashbord:
+  measles_dashboard:
     username: mrc-ide
     repo: measles_dashboard
     private: true
