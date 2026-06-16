@@ -101,3 +101,9 @@ apps:
     repo: MMS-SD_workshop
     subdir: tutorials
     script: prerender
+
+  measles_dashboard:
+    username: mrc-ide
+    repo: measles_dashboard
+    private: true
+    script: deploy.R

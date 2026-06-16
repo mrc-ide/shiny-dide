@@ -82,6 +82,37 @@ or if you need to just hack on something run
 
 to get a bash shell within the docker system, configured as it would be when running, but with a writeable `/shiny-data` filesystem.
 
+## Fetching secrets from vault during deployment.
+
+Sometimes shiny apps need secrets; for example, google authentication requires a client ID
+and a secret to establish a connection, which we obviously don't want in a repo.
+
+* Put the secrets in the vault in a sensible place.
+* Run `./twinkle -v` or `./twinkle-shell -v` - the `-v` argument will check
+for the vault environment variables, and ask if they are not set. You can also
+set the `VAULT_ADDR` and `VAULT_GITHUB_AUTH_TOKEN` environment variables in advance
+if you prefer.
+
+Then one way a user can do this in R is:-
+
+* Include `vaultr` in `pkgdepends.txt`.
+* Include a `deploy.R` script (declaring it in the app's part of `site.yml`):-
+
+```
+client <- vaultr::vault_client(login = "github")
+root <- "/secret/shiny.dide/misc/some_app/"
+secret <- client$read("/secret/shiny.dide/misc/app/some_secret")
+writeLines(sprintf("SECRET=%s", secret), ".Renviron")
+```
+
+This goes in the root of the app. And somewhere in their `app.R` file, they
+can then load the `SECRET` environment variable with `readRenviron(".Renviron")`.
+
+This creates a `.Renviron` file in the deployment folder on the server for this
+project, but the shiny server does not serve this file. Users likely will need
+to talk to us about deployment secrets, as the problems generally only come up
+on deployment, and are not very easy to test locally.
+
 ## The configuration
 
 The configuration is spread over a few files, but only the first needs changing generally (some of the others would be changed if adapting to a different system)

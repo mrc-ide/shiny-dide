@@ -1,6 +1,33 @@
 #!/bin/bash
+
+use_vault=false
+twinkle_args=()
+
+for arg in "$@"; do
+  if [[ "$arg" == "-v" ]]; then
+    use_vault=true
+  else
+    twinkle_args+=("$arg")
+  fi
+done
+
+if $use_vault; then
+  if [[ -z "$VAULT_ADDR" ]]; then
+    read -rp "VAULT_ADDR: " VAULT_ADDR
+    export VAULT_ADDR
+  fi
+
+  if [[ -z "$VAULT_AUTH_GITHUB_TOKEN" ]]; then
+    read -rsp "VAULT_AUTH_GITHUB_TOKEN: " VAULT_AUTH_GITHUB_TOKEN
+    echo
+    export VAULT_AUTH_GITHUB_TOKEN
+  fi
+fi
+
 docker compose run --rm \
        -v shiny-data:/shiny-data \
        -e TWINKLE_ROOT=/shiny-data \
+       -e VAULT_ADDR="$VAULT_ADDR" \
+       -e VAULT_AUTH_GITHUB_TOKEN="$VAULT_AUTH_GITHUB_TOKEN" \
        -w /shiny-data \
-       shiny bash $@
+       shiny bash "${twinkle_args[@]}"
