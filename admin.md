@@ -96,7 +96,7 @@ if you prefer.
 Then one way a user can do this in R is:-
 
 * Include `vaultr` in `pkgdepends.txt`.
-* Include a `deploy.R` script (declaring it in the app's part of `site.yml`).
+* Include a `deploy.R` script (declaring it in the app's part of `site.yml`):-
 
 ```
 client <- vaultr::vault_client(login = "github")
@@ -107,6 +107,11 @@ writeLines(sprintf("SECRET=%s", secret), ".Renviron")
 
 This goes in the root of the app. And somewhere in their `app.R` file, they
 can then load the `SECRET` environment variable with `readRenviron(".Renviron")`.
+
+This creates a `.Renviron` file in the deployment folder on the server for this
+project, but the shiny server does not serve this file. Users likely will need
+to talk to us about deployment secrets, as the problems generally only come up
+on deployment, and are not very easy to test locally.
 
 ## The configuration
 
