@@ -88,12 +88,10 @@ Sometimes shiny apps need secrets; for example, google authentication requires a
 and a secret to establish a connection, which we obviously don't want in a repo.
 
 * Put the secrets in the vault in a sensible place.
-* On the shiny server, before running `twinkle deploy`, set the environment variables:-
-
-```
-export VAULT_ADDR=...
-export VAULT_AUTH_GITHUB_TOKEN=...
-```
+* Run `./twinkle -v` or `./twinkle-shell -v` - the `-v` argument will check
+for the vault environment variables, and ask if they are not set. You can also
+set the `VAULT_ADDR` and `VAULT_GITHUB_AUTH_TOKEN` environment variables in advance
+if you prefer.
 
 Then one way a user can do this in R is:-
 
